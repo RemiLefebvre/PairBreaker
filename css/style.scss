@@ -1,0 +1,21 @@
+body{
+  // background-color: ;
+}
+#allCard{
+  display: flex;
+  flex-wrap: wrap;
+  div{
+    margin: 10px 10px;
+    height: 200px;
+    width: 100px;
+    background-color: black;
+    border-radius: 10px;
+
+    img{
+      border-radius: 10px;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+    }
+  }
+}
