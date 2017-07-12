@@ -51,7 +51,7 @@
         <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
         <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
         <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
+        <img class="img" src="img/window.jpg" alt="">
 
       </div>
 
@@ -105,33 +105,41 @@
     //
     for (var i = 0; i < T.length; i++) {
       allimg[i].value =T[i];
-      allimg[i].src ="img/"+T[i]+".jpg";
+      allimg[i].src ="img/window.jpg";
     }
     //
-    // var firstChoiceValue=99;
-    // var firstchoice=0;
-    // var secondChoice=99;
-    // function choice(img){
-    //   if (firstChoiceValue ==99) {
-    //     img.style.opacity ="1";
-    //     firstChoiceValue = img.value;
-    //     firstchoice = img;
-    //   }
-    //   else if(secondChoice==99) {
-    //     secondChoice = img.value;
-    //     if (firstChoiceValue == secondChoice) {
-    //       img.style.opacity ="1";
-    //       firstChoiceValue=99;
-    //       secondChoice=99;
-    //       console.log("sisi");
-    //     }
-    //     else {
-    //       firstchoice.style.opacity ="0.1";
-    //       firstChoiceValue=99;
-    //       secondChoice=99;
-    //     }
-    //   }
-    // }
+    var firstChoiceValue=99;
+    var firstchoice=0;
+    var secondChoiceValue=99;
+    function choice(img){
+      if (firstChoiceValue ==99) {
+        firstChoiceValue = img.value;
+        img.src ="img/"+ firstChoiceValue+".jpg";
+        firstchoice = img;
+      }
+      else if(secondChoiceValue==99) {
+        secondChoiceValue = img.value;
+        if (firstChoiceValue == secondChoiceValue) {
+          img.src ="img/"+ secondChoiceValue+".jpg";
+          firstChoiceValue=99;
+          secondChoiceValue=99;
+          console.log("sisi");
+          setTimeout(function(){
+            img.src ="img/windowbreak.jpg";
+            firstchoice.src ="img/windowbreak.jpg";
+
+          },500)
+        }
+        else {
+          img.src ="img/window.jpg";
+          firstchoice.src ="img/window.jpg";
+
+          firstChoiceValue=99;
+          secondChoiceValue=99;
+          firstchoice=0;
+        }
+      }
+    }
 
 
   </script>
@@ -172,14 +180,14 @@
 
   <!-- Initialize Bootstrap functionality -->
   <script>
-    // Initialize tooltip component
-    $(function() {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
-    // Initialize popover component
-    $(function() {
-      $('[data-toggle="popover"]').popover()
-    })
+    // // Initialize tooltip component
+    // $(function() {
+    //   $('[data-toggle="tooltip"]').tooltip()
+    // })
+    // // Initialize popover component
+    // $(function() {
+    //   $('[data-toggle="popover"]').popover()
+    // })
   </script>
 
 </body>
