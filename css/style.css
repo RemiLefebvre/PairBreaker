@@ -26,7 +26,9 @@ body {
 }
 #building #breakable {
   padding: 0;
-  margin-top: 193px;
+  position: absolute;
+  bottom: 128px;
+  left: 72px;
   width: 176px;
   height: 164px;
 }
@@ -54,7 +56,8 @@ body {
     height: 100vh;
   }
   #building #breakable {
-    margin-top: 263px;
+    bottom: 215px;
+    left: 97px;
     width: 239px;
     height: 164px;
   }

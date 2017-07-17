@@ -24,7 +24,9 @@ body{
   background-repeat: no-repeat;
   #breakable{
     padding: 0;
-    margin-top: 193px;
+    position: absolute;
+    bottom: 128px;
+    left: 72px;
     width: 176px;
     height: 164px;
     .top,.middle,.bottom{
@@ -54,7 +56,8 @@ body{
     width: 440px;
     height: 100vh;
     #breakable{
-      margin-top: 263px;
+      bottom: 215px;
+      left: 97px;
       width: 239px;
       height: 164px;
       .top,.middle,.bottom{
