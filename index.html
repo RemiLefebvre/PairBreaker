@@ -23,36 +23,39 @@
 <body>
 
   <div id="building">
+    <figure id="felix">
+      <img id="feliximg" src="img/felixfixit.gif" alt="felix">
+    </figure>
     <h2 id="timer">30</h2>
     <figure id="ralph">
-      <img id="ralphimg" src="img/ralphwait.gif" alt="">
+      <img id="ralphimg" src="img/ralphwait.gif" alt="ralph">
     </figure>
     <div id="breakable" class="container">
       <div class="top">
 
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
 
       </div>
       <div class="middle">
 
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
 
       </div>
       <div class="bottom">
 
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="">
-        <img class="img" onclick="src='img/windowbreak.jpg'" src="img/window.jpg" alt="">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
+        <img class="img" onclick="src='img/windowbreak.jpg'" src="img/window.jpg" alt="window">
 
       </div>
 
@@ -124,8 +127,9 @@
       if (done.length == 7) {
         clearInterval(timerTurn);
         setTimeout(function() {
-          ralph.src = "img/ralphwin.gif";
+          document.getElementById("ralphimg").src = "img/ralphwin2.gif";
         }, 500)
+
       }
     }
 
@@ -133,7 +137,7 @@
 
 
 
-    var timer = 3;
+    var timer = 5;
     var timerTurn = setInterval(function() {
         timer--;
         document.getElementById("timer").innerHTML = timer;
@@ -144,7 +148,15 @@
 
 
     function timeOut() {
-      console.log("oui");
+      document.getElementById("felix").style.display="block";
+      setTimeout(function(){document.getElementById("feliximg").src="img/felixdone.gif"},6500)
+      setTimeout(function(){
+        for (var i = 0; i < allimg.length; i++) {
+          allimg[i].src="img/window.jpg";
+        }}
+          ,5800)
+          setTimeout(function(){document.getElementById("felix").style.display="none";},9000)
+
       ralph.src="img/ralphloose.gif"
       var opa=1;
       var varLeave= setInterval(function () {
