@@ -112,7 +112,6 @@
             img.src = "img/windowbreak.jpg";
             firstChoice.src = "img/windowbreak.jpg";
             ralph.src="img/ralphwait.gif";
-
           }, 300)
         }
         else {
@@ -120,14 +119,26 @@
           setTimeout(function(){img.src="img/window.jpg";firstChoice.src = "img/window.jpg";firstChoiceValue = 99;secondChoiceValue = 99;firstChoice = 0;},400);
         }
       }
-      if (done.length==7) {
-        console.log("fini");
+      if (timer==0) {
+        console.log("timeout");
+      }
+      if (done.length==1) {
+        clearInterval(timerTurn);
         setTimeout(function(){ralph.src="img/ralphwin.gif";},500)
       }
     }
 
-    var timer = 31
-    setInterval(function(){timer--;document.getElementById("timer").innerHTML=timer;},1000)
+
+
+
+
+    var timer = 30
+    var timerTurn = setInterval(function(){
+      if (timer==1) {
+        clearInterval(timerTurn);
+      }
+      timer--;document.getElementById("timer").innerHTML=timer;}
+      ,1000)
   </script>
 
   <script>
