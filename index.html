@@ -56,12 +56,8 @@
         <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
         <img class="img" onclick="choice(this)" src="img/window.jpg" alt="window">
         <img class="img" onclick="src='img/windowbreak.jpg'" src="img/window.jpg" alt="window">
-
       </div>
-
-
     </div>
-
   </div>
 
 
@@ -124,10 +120,11 @@
           }, 400);
         }
       }
-      if (done.length == 7) {
+      if (done.length == 1) {
         clearInterval(timerTurn);
         setTimeout(function() {
-          document.getElementById("ralphimg").src = "img/ralphwin2.gif";
+          document.getElementById("ralph").style.width="70px";
+          document.getElementById("ralphimg").src = "img/ralphwin.gif";
         }, 500)
 
       }
@@ -137,7 +134,7 @@
 
 
 
-    var timer = 5;
+    var timer = 30;
     var timerTurn = setInterval(function() {
         timer--;
         document.getElementById("timer").innerHTML = timer;
