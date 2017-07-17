@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "8bit";
+  src: url("../font/8-BIT.TTF");
+}
+
 body,html{
   width: 100vw;
   height: 100vh;
@@ -27,6 +32,7 @@ body{
     top: 60px;
     color: red;
     position: absolute;
+    font-family: "8bit";
   }
   #ralph{
     width: 50px;
@@ -71,14 +77,17 @@ body{
   #building{
     width: 440px;
     height: 100vh;
+    h2{
+      font-size: 37px;
+    }
     #ralph{
       left: 180px;
       top: 133px;
       width: 70px;
     }
     #timer{
-      left: 200px;
-      top: 100px;
+      left: 188px;
+      top: 90px;
     }
     #breakable{
       bottom: 215px;
