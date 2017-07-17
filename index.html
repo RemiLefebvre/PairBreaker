@@ -79,7 +79,6 @@
 
     for (var i = 0; i < T.length; i++) {
       allimg[i].value = T[i];
-      allimg[i].src = "img/window.jpg";
     }
 
     var firstChoiceValue = 99;
@@ -88,13 +87,13 @@
     var done = [];
 
     function choice(img) {
-      if (img.value == "break") {
+      if (img.value == "break" || timer==0) {
         console.log("break");
       } else if (firstChoiceValue == 99) {
         firstChoiceValue = img.value;
         img.src = "img/" + firstChoiceValue + ".jpg";
         firstChoice = img;
-      } else if (secondChoiceValue == 99) {
+      } else if (secondChoiceValue == 99 && img!=firstChoice) {
         secondChoiceValue = img.value;
         if (firstChoiceValue == secondChoiceValue) {
           ralph.src = "img/ralphbreak.gif"
@@ -120,7 +119,7 @@
           }, 400);
         }
       }
-      if (done.length == 1) {
+      if (done.length == 7) {
         clearInterval(timerTurn);
         setTimeout(function() {
           document.getElementById("ralph").style.width="70px";
