@@ -63,8 +63,7 @@
 
 
   <script type="text/javascript">
-
-    var ralph=document.getElementById("ralphimg");
+    var ralph = document.getElementById("ralphimg");
 
     // // TRI
     var allimg = document.getElementsByClassName("img");
@@ -87,21 +86,19 @@
     var firstChoiceValue = 99;
     var firstChoice = 0;
     var secondChoiceValue = 99;
-    var done=[];
+    var done = [];
 
     function choice(img) {
       if (img.value == "break") {
         console.log("break");
-      }
-      else if (firstChoiceValue == 99) {
+      } else if (firstChoiceValue == 99) {
         firstChoiceValue = img.value;
         img.src = "img/" + firstChoiceValue + ".jpg";
         firstChoice = img;
-      }
-      else if (secondChoiceValue == 99) {
+      } else if (secondChoiceValue == 99) {
         secondChoiceValue = img.value;
         if (firstChoiceValue == secondChoiceValue) {
-          ralph.src ="img/ralphbreak.gif"
+          ralph.src = "img/ralphbreak.gif"
           img.src = "img/" + secondChoiceValue + ".jpg";
           firstChoiceValue = 99;
           secondChoiceValue = 99;
@@ -111,20 +108,24 @@
           setTimeout(function() {
             img.src = "img/windowbreak.jpg";
             firstChoice.src = "img/windowbreak.jpg";
-            ralph.src="img/ralphwait.gif";
+            ralph.src = "img/ralphwait.gif";
           }, 300)
-        }
-        else {
+        } else {
           img.src = "img/" + secondChoiceValue + ".jpg";
-          setTimeout(function(){img.src="img/window.jpg";firstChoice.src = "img/window.jpg";firstChoiceValue = 99;secondChoiceValue = 99;firstChoice = 0;},400);
+          setTimeout(function() {
+            img.src = "img/window.jpg";
+            firstChoice.src = "img/window.jpg";
+            firstChoiceValue = 99;
+            secondChoiceValue = 99;
+            firstChoice = 0;
+          }, 400);
         }
       }
-      if (timer==0) {
-        console.log("timeout");
-      }
-      if (done.length==1) {
+      if (done.length == 7) {
         clearInterval(timerTurn);
-        setTimeout(function(){ralph.src="img/ralphwin.gif";},500)
+        setTimeout(function() {
+          ralph.src = "img/ralphwin.gif";
+        }, 500)
       }
     }
 
@@ -132,13 +133,31 @@
 
 
 
-    var timer = 30
-    var timerTurn = setInterval(function(){
-      if (timer==1) {
-        clearInterval(timerTurn);
-      }
-      timer--;document.getElementById("timer").innerHTML=timer;}
-      ,1000)
+    var timer = 3;
+    var timerTurn = setInterval(function() {
+        timer--;
+        document.getElementById("timer").innerHTML = timer;
+        if (timer == 0) {
+          clearInterval(timerTurn);
+          timeOut();
+        }}, 1000)
+
+
+    function timeOut() {
+      console.log("oui");
+      ralph.src="img/ralphloose.gif"
+      var opa=1;
+      var varLeave= setInterval(function () {
+        if (opa< -0.05) {
+          clearInterval(varLeave);
+        }
+        else {
+          document.getElementById("ralphimg").style.opacity=opa;
+          opa-=0.05;
+        }
+      }, 100);
+
+    }
   </script>
 
   <script>
