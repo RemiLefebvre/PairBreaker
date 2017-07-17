@@ -7,6 +7,10 @@ body {
   background-color: #231F20;
   display: flex;
   justify-content: space-around;
+  background-image: url("../img/bg.jpg");
+  background-size: 400px 500px;
+  background-repeat: repeat-x;
+  background-position: bottom;
 }
 
 #building {
@@ -44,7 +48,7 @@ body {
   margin-bottom: 2px;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   #building {
     width: 440px;
     height: 100vh;
