@@ -23,6 +23,10 @@
 <body>
 
   <div id="building">
+    <h2 id="timer">30</h2>
+    <figure id="ralph">
+      <img id="ralphimg" src="img/ralphwait.gif" alt="">
+    </figure>
     <div id="breakable" class="container">
       <div class="top">
 
@@ -59,6 +63,9 @@
 
 
   <script type="text/javascript">
+
+    var ralph=document.getElementById("ralphimg");
+
     // // TRI
     var allimg = document.getElementsByClassName("img");
 
@@ -94,6 +101,7 @@
       else if (secondChoiceValue == 99) {
         secondChoiceValue = img.value;
         if (firstChoiceValue == secondChoiceValue) {
+          ralph.src ="img/ralphbreak.gif"
           img.src = "img/" + secondChoiceValue + ".jpg";
           firstChoiceValue = 99;
           secondChoiceValue = 99;
@@ -103,6 +111,7 @@
           setTimeout(function() {
             img.src = "img/windowbreak.jpg";
             firstChoice.src = "img/windowbreak.jpg";
+            ralph.src="img/ralphwait.gif";
 
           }, 300)
         }
@@ -113,8 +122,12 @@
       }
       if (done.length==7) {
         console.log("fini");
+        setTimeout(function(){ralph.src="img/ralphwin.gif";},500)
       }
     }
+
+    var timer = 31
+    setInterval(function(){timer--;document.getElementById("timer").innerHTML=timer;},1000)
   </script>
 
   <script>

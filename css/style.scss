@@ -22,6 +22,22 @@ body{
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+  h2{
+    left: 140px;
+    top: 60px;
+    color: red;
+    position: absolute;
+  }
+  #ralph{
+    width: 50px;
+    left: 132px;
+    top: 103px;
+    position: absolute;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
   #breakable{
     padding: 0;
     position: absolute;
@@ -55,6 +71,15 @@ body{
   #building{
     width: 440px;
     height: 100vh;
+    #ralph{
+      left: 180px;
+      top: 133px;
+      width: 70px;
+    }
+    #timer{
+      left: 200px;
+      top: 100px;
+    }
     #breakable{
       bottom: 215px;
       left: 97px;
