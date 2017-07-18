@@ -69,16 +69,20 @@
 
     var T = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7];
 
-    // CHANGE ORDER OF T
-    for (var position = T.length - 1; position >= 1; position--) {
-      var hasard = Math.floor(Math.random() * (position + 1));
-      var sauve = T[position];
-      T[position] = T[hasard];
-      T[hasard] = sauve;
-    }
+    orderOfT();
+    function orderOfT(){
+      // CHANGE ORDER OF T
+      for (var position = T.length - 1; position >= 1; position--) {
+        var hasard = Math.floor(Math.random() * (position + 1));
+        var sauve = T[position];
+        T[position] = T[hasard];
+        T[hasard] = sauve;
+      }
 
-    for (var i = 0; i < T.length; i++) {
-      allimg[i].value = T[i];
+      for (var i = 0; i < T.length; i++) {
+        allimg[i].value = T[i];
+      }
+
     }
 
     var firstChoiceValue = 99;
@@ -87,13 +91,13 @@
     var done = [];
 
     function choice(img) {
-      if (img.value == "break" || timer==0) {
+      if (img.value == "break" || timer == 0) {
         console.log("break");
       } else if (firstChoiceValue == 99) {
         firstChoiceValue = img.value;
         img.src = "img/" + firstChoiceValue + ".jpg";
         firstChoice = img;
-      } else if (secondChoiceValue == 99 && img!=firstChoice) {
+      } else if (secondChoiceValue == 99 && img != firstChoice) {
         secondChoiceValue = img.value;
         if (firstChoiceValue == secondChoiceValue) {
           ralph.src = "img/ralphbreak.gif"
@@ -122,49 +126,83 @@
       if (done.length == 7) {
         clearInterval(timerTurn);
         setTimeout(function() {
-          document.getElementById("ralph").style.width="70px";
           document.getElementById("ralphimg").src = "img/ralphwin.gif";
+          document.getElementById("timer").innerHTML = "WINNER";
         }, 500)
+
+        setTimeout(function(){
+          restart();
+        },8000)
 
       }
     }
 
-
-
-
-
+    timerT();
     var timer = 30;
-    var timerTurn = setInterval(function() {
+    var timerTurn;
+    function timerT(){
+      timerTurn = setInterval(function() {
         timer--;
         document.getElementById("timer").innerHTML = timer;
         if (timer == 0) {
           clearInterval(timerTurn);
           timeOut();
-        }}, 1000)
+        }
+      }, 1000)
+      // return timerTurn;
+
+    }
+
 
 
     function timeOut() {
-      document.getElementById("felix").style.display="block";
-      setTimeout(function(){document.getElementById("feliximg").src="img/felixdone.gif"},6500)
-      setTimeout(function(){
+      firstChoiceValue = 99;
+      secondChoiceValue = 99;
+
+      document.getElementById("timer").innerHTML = "TIME OUT";
+
+
+      document.getElementById("feliximg").src = "img/felixfixit.gif"
+      document.getElementById("felix").style.display = "block";
+      setTimeout(function() {
+        document.getElementById("feliximg").src = "img/felixdone.gif"
+      }, 6500)
+      setTimeout(function() {
         for (var i = 0; i < allimg.length; i++) {
-          allimg[i].src="img/window.jpg";
-        }}
-          ,5800)
-          setTimeout(function(){document.getElementById("felix").style.display="none";},9000)
+          allimg[i].src = "img/window.jpg";
+        }
+      }, 5800)
+      setTimeout(function() {
+        document.getElementById("felix").style.display = "none";
+        restart();
+      }, 9000)
 
-      ralph.src="img/ralphloose.gif"
-      var opa=1;
-      var varLeave= setInterval(function () {
-        if (opa< -0.05) {
+
+      ralph.src = "img/ralphloose.gif"
+      var opa = 1;
+      var varLeave = setInterval(function() {
+        if (opa < -0.05) {
           clearInterval(varLeave);
+        } else {
+          document.getElementById("ralphimg").style.opacity = opa;
+          opa -= 0.05;
         }
-        else {
-          document.getElementById("ralphimg").style.opacity=opa;
-          opa-=0.05;
-        }
-      }, 100);
+      }, 200);
+    }
 
+
+    function restart(){
+      for (var i = 0; i < allimg.length; i++) {
+        allimg[i].src = "img/window.jpg";
+      }
+
+      timer=30;
+      timerT();
+      ralph.src = "img/ralphwait.gif"
+      document.getElementById("ralphimg").style.opacity = 1;
+      done=[];
+
+      orderOfT();
     }
   </script>
 

@@ -42,11 +42,12 @@ img {
 }
 #building h2 {
   text-shadow: 0 0 2px yellow;
-  left: 140px;
+  width: 100%;
   top: 60px;
   color: red;
   position: absolute;
   font-family: "8bit";
+  text-align: center;
 }
 #building #ralph {
   width: 50px;
@@ -94,7 +95,6 @@ img {
     width: 70px;
   }
   #building #timer {
-    left: 188px;
     top: 90px;
   }
   #building #breakable {
