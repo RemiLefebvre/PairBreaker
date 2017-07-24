@@ -35,14 +35,13 @@ img{
     width: 90px;
     position: absolute;
     right: 10px;
-    bottom: 0;
+    bottom: -10px;
     display: none;
   }
   h2{
     text-shadow: 0 0 2px yellow;
-    // left: 140px;
     width: 100%;
-    top: 60px;
+    bottom: 400px;
     color: red;
     position: absolute;
     font-family: "8bit";
@@ -51,7 +50,7 @@ img{
   #ralph{
     width: 50px;
     left: 132px;
-    top: 103px;
+    bottom: 305px;
     position: absolute;
   }
   #breakable{
@@ -86,17 +85,15 @@ img{
 @media (min-width : 1200px) {
   #building{
     width: 440px;
-    height: 100vh;
-    h2{
+    height: 630px;
+    #timer{
       font-size: 37px;
+      bottom: 500px !important;
     }
     #ralph{
       left: 180px;
-      top: 133px;
+      bottom: 405px;
       width: 70px;
-    }
-    #timer{
-      top: 90px;
     }
     #breakable{
       bottom: 215px;
